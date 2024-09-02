@@ -28,7 +28,7 @@ const displayPhones = (phones, isShowall) => {
     }
     
     phones.forEach(phone =>{
-        console.log(phone);
+        // console.log(phone);
         // 2. create a div
         const phoneCard = document.createElement('div');
         phoneCard.classList = `card bg-gray-100 p-4 shadow-xl`;
@@ -61,7 +61,12 @@ const handleShowdetail= async (id) =>{
     // load single phone data
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
     const data = await res.json();
-    console.log(data);
+    const phone = data.data;
+    showPhoneDetails(phone);
+}
+const showPhoneDetails = (phone) =>{
+    // show the modal
+    show_details_modal.showModal();
 }
 
 // handle search button
